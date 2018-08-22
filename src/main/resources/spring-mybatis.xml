@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    <!-- 导入数据库连接信息 -->
+    <context:property-placeholder location="jdbc.properties"/>
     <bean id="db" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://"/>
-        <property name="user" value=""/>
-        <property name="password" value=""/>
+        <property name="driverClass" value="${jdbc.DriverClass}"></property>
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
     </bean>
-    <bean class="org.mybatis.spring.SqlSessionFactoryBean"></bean>
+    <!-- 扫描xml -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="db"/>
+        <property name="mapperLocations" value="com/zys/dao/*.xml"/>
+    </bean>
+    <!-- 扫描接口 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zys.dao"/>
+        <!-- 注入sqlsessionFactory -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+    <!--
+     如果需要将mapper与sql.xml分包放,就需要进行如下配置
+     在mybatis全局配置文件中加入，且需要在接口上标注@MapperScan，未测试
+        <mappers >
+            <mapper resource="com/p2p/sql/ProductCategoryMapper.xml"/>
+        </mappers>
+     -->
 </beans>
