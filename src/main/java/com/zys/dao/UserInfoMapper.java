@@ -2,7 +2,14 @@ package com.zys.dao;
 
 import com.zys.entitys.UserInfo;
 
+import java.util.List;
+
 public interface UserInfoMapper {
+    /**
+     * 查询所有
+     * @return
+     */
+    List<UserInfo> selectQuery();
     /**
      * 根据ID删除
      * @mbggenerated

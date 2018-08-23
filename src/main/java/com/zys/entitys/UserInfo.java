@@ -184,4 +184,15 @@ public class UserInfo {
     public void setUserAddress(String userAddress) {
         this.userAddress = userAddress == null ? null : userAddress.trim();
     }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userPwd='" + userPwd + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userAddress='" + userAddress + '\'' +
+                '}';
+    }
 }
