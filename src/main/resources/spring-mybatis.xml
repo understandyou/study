@@ -14,6 +14,11 @@
     <!-- 扫描xml -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="db"/>
+        <!-- 必须有一个mybatis全局配置，即便它是空的 -->
+        <property name="configLocation" value="classpath:mybatis/*.xml" />
+        <!-- 如果mybatis的mapper和接口不在同一个个包下，则需要这里指定
+              在同一包下则可以忽略
+         -->
         <property name="mapperLocations" value="com/zys/dao/*.xml"/>
     </bean>
     <!-- 扫描接口 -->
