@@ -22,11 +22,11 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
         </dependency>
-<!--        <dependency>
+        <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
             <version>2.3.1</version>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -72,16 +72,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
             <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>1.6.11</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.6.11</version>
         </dependency>
         <dependency>
             <groupId>cglib</groupId>
@@ -181,19 +171,19 @@
         <!-- inject -->
         <!-- log4j -->
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-        <dependency>
+<!--        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.11.1</version>
-        </dependency>
+        </dependency>-->
 
         <!-- log4j -->
         <!-- 加密算法库 -->
-        <dependency>
+ <!--       <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.11</version>
-        </dependency>
+        </dependency>-->
         <!-- 加密算法库 -->
     </dependencies>
     <build>

@@ -34,4 +34,5 @@
             <mapper resource="com/p2p/sql/ProductCategoryMapper.xml"/>
         </mappers>
      -->
+    <context:component-scan base-package="com.zys.controller"/>
 </beans>
